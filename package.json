@@ -1,0 +1,24 @@
+{
+  "name": "curso-webpack",
+  "version": "1.0.0",
+  "description": "- Que es WEBPACK?\r     * Es una herramienta que nos va a permitir preparar nuestro código para enviarlo a producción \r     * Nos permite trabajar no solo con JavaScript sino con archivos estaticos, CSS, imagenes, fuentes\r     * Tener un modo en desarrollo que nos permita trabajar con cada una de as particularidades de nuestro proyecto\r     * Nacio en el 2012\r     * Gestionar las dependencias \r     * Ejecutar tareas\r     * Compresion de formas, archivos CSS, imagenes\r     * Habilitar un entorno de desarrollo local que permita hacer las pruebas en nuestra computadora\r     * Cargar los modulos de JS, amd, JS o ECMAScript 2015\r     - Es muy importante que webpack es una filosofia que nos va a permitir de forma modular \r     - Es una herramienta muy importante en el desarrollo web del lado del front-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenniferAS26/curso-webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenniferAS26/curso-webpack/issues"
+  },
+  "homepage": "https://github.com/JenniferAS26/curso-webpack#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
