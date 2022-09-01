@@ -460,3 +460,18 @@ Para estar escuchando los cambios en nuestro proyecto y compilar de manera autom
 ## Deploy a Netlify
 - Vamos a crear un archivo que nos va a ayudar a tener esta configuración para desplegar
     + netlify.toml en la carpeta src
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- npm i -g gitmoji-cli
