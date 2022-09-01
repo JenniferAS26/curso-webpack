@@ -1,32 +1,32 @@
 # curso-webpack
 
-## Apuntes del curso 
+## Apuntes del curso
 
 - Que es WEBPACK?
-    * Es una herramienta que nos va a permitir preparar nuestro código para enviarlo a producción 
+    * Es una herramienta que nos va a permitir preparar nuestro código para enviarlo a producción
     * Nos permite trabajar no solo con JavaScript sino con archivos estaticos, CSS, imagenes, fuentes
     * Tener un modo en desarrollo que nos permita trabajar con cada una de as particularidades de nuestro proyecto
     * Nacio en el 2012
-    * Gestionar las dependencias 
+    * Gestionar las dependencias
     * Ejecutar tareas
     * Compresion de formas, archivos CSS, imagenes
     * Habilitar un entorno de desarrollo local que permita hacer las pruebas en nuestra computadora
     * Cargar los modulos de JS, amd, JS o ECMAScript 2015
-    - Es muy importante que webpack es una filosofia que nos va a permitir de forma modular 
+    - Es muy importante que webpack es una filosofia que nos va a permitir de forma modular
     - Es una herramienta muy importante en el desarrollo web del lado del front-end
 
 - Conceptos Basicos de Webpack
     + Webpack es un paquete de modulos estáticos para aplicaciones de JS modernas, webpack lo que hace es que construye un gráfico de dependencias que mapea cada módulo para convertirlo en uno o más módulos segun sea el caso.
-        - Desde webpack 4 ya no dependemos de tener un archivo de configuración podemos trabajar con un estándar que se crea, pero para esto debemos entender que debemos tener un punto de entrada dentro de una carpeta especifica y un archivo llamado 
+        - Desde webpack 4 ya no dependemos de tener un archivo de configuración podemos trabajar con un estándar que se crea, pero para esto debemos entender que debemos tener un punto de entrada dentro de una carpeta especifica y un archivo llamado
             - index.js
         - vamos a considerar que debemos trabajar con un punto de salida donde va ser creado nuestro poryecto una vez preparado por medio de webpack
             - carpeta DIST que viene de distrinution, aquí se van a añadir los elementos que nosotros estamos preparando con webpack, imagenes, JavaSCript, HTML...
-        - vamos a contar con elementos particulares con los que vamos a poder trabajar 
-            - modo de producción 
+        - vamos a contar con elementos particulares con los que vamos a poder trabajar
+            - modo de producción
             - modo de desarrollo
             - opción para observar los cambios en tiempo real y recompilar nuestro código, para analizar cada cambio en nuestro proyecto
         - otra cosa que le da mucho valor a webpack es que dispone de LOADERS y PLUGGINS que nos ayudan a preparar particularidades de nuestro proyecto
-            - podemos preparar un LOADER para entender un lenguaje particular 
+            - podemos preparar un LOADER para entender un lenguaje particular
                 - React, en el que vamos a utilizar JSX, la sintaxis que nos permite trabajar XML, HTML dentro de React y con esto poder utilizar este mismo loader para identificar esta sintaxis para entender y trabajar nuestro proyecto
                 - Los PLUGGINS van a extender estos recursos que ya pedemos agregar con los loaders pero para añadir algunas configuraciones o algunos elementos particulares que nos van a permitir trabajar con cada uno de estos recursos
                 - Vamos a poder tener modos de PERFORMANCE donde vamos a poder añadir configuraciones más avanzadas que nos va a permitir a nosotros configurar cómo se va a minificar nuestro proyecto, hacia donde lo vamos a enviar o que carpeta va a ser el destino de nuestros elementos
@@ -38,10 +38,10 @@
     + git init
 - Ahora tenemos dos opciones
     + npm init -y --> Hace una configuración por defecto
-    + npm init --> para configurar cada uno de los pasos 
+    + npm init --> para configurar cada uno de los pasos
 - Para abrir mi editor de código (Visual Studio)
     + code .
-- Generalmente solemos tener una estructura 
+- Generalmente solemos tener una estructura
     + Crear carpeta src
         - index.js --> Este archivo va a tener la lógica, es mi punto de entrada, mi punto principal donde voy a tener mi código
     + Trabajar la estructura de elementos que vamos a tener
@@ -68,12 +68,12 @@
         * Vamos a preparar este archivo para que entienda cual es nuestro punto de entrada, cuales van a ser las extensiones que vamos a estar usando
     + vamos a crear una constante que le vamos a llamar path, va a utilizar un REQUIRE que me va a ayudar a traer el elemento path, path ya esta disponible en node así que no hay que hacer una instalación de dependencias
         - const path = require('path');
-    + Vamos a crear un modulo que vamos a exportar con un objeto con la configuracion deseada  
+    + Vamos a crear un modulo que vamos a exportar con un objeto con la configuracion deseada
         - entry: el punto de entrada de nuestra aplicación
         - output: es hacia donde vamos a enviar lo que va a preparar webpack, webpack ya tiene una carpeta para esto que es la carpeta dist. Aqui dentro en un objeto interno vamos a añadir los elementos con los que vamos a trabajar
             - path, vamos a traer el path que trajimos al inicio de nuestro proyecto para tener el uso de resolve que nos va a permitir saber donde se encuentra nuestro proyecto, en que directorio y poderlo usar de esta forma no tener un problema particularmente con el nombre de la carpeta donde estoy posicionado. etc... Asi cuando enviamos nuestro proyecto a un servidor en la nube tener la direcccion de donde se va porder encontrar este repositorio, archivo ... con eso garantizamos que siempre va a poder encontrar la carpeta donde se encuentra este proyecto
             - filename, podemos ponerle un nombre, bundle mas adelante podemos ponerle un hash
-        - Queremos pasarle a esta configuracion de webpack las extensiones con las que vamos a trabajar de la siguiente manera 
+        - Queremos pasarle a esta configuracion de webpack las extensiones con las que vamos a trabajar de la siguiente manera
             - resolve: creamos un objeto y dentro de ese objeto le pasamos lo siguiente
                 - extesions: dentro de un arreglo le pasamos las extensiones que vamos a utilizar
         # module.exports = {
@@ -89,13 +89,13 @@
 
     - despues de crear todas estas configuraciones vamos a ir a la terminal y correr el siguiente comando
         + npx webpack --mode production --config webpack.config.js
-    - para hacer mas amigable la ejecucion del comando podemos ir a package.json y crear un script 
+    - para hacer mas amigable la ejecucion del comando podemos ir a package.json y crear un script
         + "build": "webpack --mode production"
 
 ## BABEL
 Con este preparamos nuestro código JavaScript para que sea compatible con todos los navegadores
-- Debemos integrar babel a nuestro proyecto y a la configuración de webpack para sacarle todo el provecho posible 
-    * Añadimos unas dependencias que vamos a trabajar, instalamos en nuestra terminal éstas mismas  
+- Debemos integrar babel a nuestro proyecto y a la configuración de webpack para sacarle todo el provecho posible
+    * Añadimos unas dependencias que vamos a trabajar, instalamos en nuestra terminal éstas mismas
         - npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
             + @babel/preset-env: nos va a ayudar a trabajar con JavaScript moderno
             + @babel/plugin-transform-runtime: Nos va a servir para trabajar con asincronismo
@@ -143,7 +143,7 @@ Con este preparamos nuestro código JavaScript para que sea compatible con todos
 ## HTML en Webpack
 - npm install html-webpack-plugin -D
     * Luego vamos a nuestro archivo webpack.config para añadir este elemento
-        -- creamos una constante 
+        -- creamos una constante
             const HtmlWebpackPlugin = require('html-webpack-plugin');
     const path = require('path');
     const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -272,7 +272,7 @@ Con este preparamos nuestro código JavaScript para que sea compatible con todos
            +++new MiniCssExtractPlugin(),
         ]
     }
--- ahora creamos un archivo en la carpeta styles 
+-- ahora creamos un archivo en la carpeta styles
     * vars.styl
 
 ## Copia de archivos con webpack
@@ -315,3 +315,148 @@ Con este preparamos nuestro código JavaScript para que sea compatible con todos
 En templates importamos las imagenes y las agregamos a la etiqueta img en src como una variabla de javascript
 
 ## Loaders de Fuentes
+Para optimizar el llamado de fuentes en webpack y no hacerlo más pesado
++ npm install url-loader file-loader -D
+
+# Compresión y minificación de archivos
+Esta es una de las razones más importantes de usar webpack, la compresión, la optimización entre otras caracteristicas
+
+## Optimización
++ npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
+- Agregamos esta configuración a nuestro archivo webpack.config.js
+    const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin'); // para css
+    const TerserPlugin = require('terser-webpack-plugin'); // para javascript
+- Ahora los añadimos como una opción de la que vamos a disponer en nuestros recursos
+    plugins: [
+		...
+	],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new CSSMinimizerPlugin(),
+			new TerserPlugin(),
+		]
+	}
+------------------------------------------------------------------------------------
+** Otra manera de optimizar son los hash
+    module.exports = {
+	entry: ...
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].[contenthash].js',
+		assetModuleFilename: 'assets/images[hash][ext]'
+	},
+	resolve: {
+		...
+	},
+	module: {
+			rules: [
+				{
+					...
+				},
+				{
+					...
+				},
+				{
+					...
+				},
+				{
+					test: /\.(woff|woff2)$/,
+					use: {
+						loader: 'url-loader',
+						options: {
+							...
+							name: "[name].[contenthash].[ext]",
+							...
+						},
+					}
+				}
+			]
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			...
+		}),
+		new MiniCssExtractPlugin({
+			filename: 'assets/[name].[contenthash].css'
+		}),
+		new CopyPlugin({
+			patterns: [
+				...
+			]
+		})
+	],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new CSSMinimizerPlugin(),
+			new TerserPlugin(),
+		]
+	}
+}
+
+## Webpack Alias
+para identificarlo como un alias lo colocamos con un @ al principio
+    - '@utils': path.resolve(__dirname, 'src/utils/')
+    - '@templates': path.resolve(__dirname, 'src/templates/'),
+    - '@styles': path.resolve(__dirname, 'src/styles/'),
+    - '@images': path.resolve(__dirname, 'src/images/'),
+Para importar en el index.js ya no se necesita el './' sino que simplemente con '@alias' se puede hacer.
+    - import getData from '@utils/getData.js';
+
+# Variables de entorno
+Son usadas cuando trabajamos con proyectos que van creciendo y tenemos que compartir con otros compañeros de trabajo, son un espacio seguro donde vamos a tener estas variables que vamos a utilizar en conexiones a bases de datos, o elementos que hacen referencia a un punto especifico de la configuración de nuestro proyecto pero que no queremos exponer dentro del código
+
+* ¿Cómo utilizarlas dentro de webpack para que pueda vivir nuestro proyecto de manera segura?
+    - npm install dotenv-webpack -D
+    - Añadir a nuestro archivo de configuración las configuraciones necesarias.
+        - vamos a crear en nuestra raiz un archivo '.env' que es donde van a vivir nuestras variables de entorno
+        # NOTA 
+            El archivo .env no se sube al repositorio, y si entras a un nuevo equipo debes solicitar estas variables a tu lider de equipo o a las personas que estan trabajando en el proyecto
+        - Es necesario añadir un archivo .env-example que va a tener los elementos ejemplo de qué variables necesita este proyecto
+            * Vamos a añadir la API que estemos usando
+                API=https://randomuser.me/api/
+        - Ahora en nuestro archivo webpack generamos la configuración que necesitamos
+            const DotEnv = require('dotenv-webpack')
+            plugins: [
+                new HtmlWebpackPlugin({
+                    ...
+                }),
+                new MiniCssExtractPlugin({
+                    ...
+                }),
+                new CopyPlugin({
+                    patterns: [
+                        {...
+                    ]
+                }),
+		        new DotEnv(),
+            ],
+        - Ahora en nuestro archivo de utilerias donde tenemos la api la vamos a llamar de otra forma:
+            const API = process.env.API;
+            # nota: de esta protegemos nuestro código para no tener datos que puedan ser sensibles.
+
+## Webpack en modo desarrollo
+- Debemos crear un nuevo archivo de cofiguración para separar las configuraciones que van en modo desarrollo y modo producción
+    - Creamos un nuevo archivo
+        + webpack.config.dev.js
+        + No necesitamos la optmización y podemos activar el modo desarrollo
+            mode: 'development',
+        + En package.json
+            "dev": "webpack --config webpack.config.dev.js"
+
+## Webpack en modo producción
+Debemos garantizar que se va a limpiar la estrutura y no vamos a tener muchas versiones diferentes
+    - npm install clean-webpack-plugin -D
+
+## Webpack Watch
+Para estar escuchando los cambios en nuestro proyecto y compilar de manera automatica
+    + Vamos a activar el modo watch en nuestro archivo de configuración de desarrollo
+        - watch: true,
+    --se queda pendiente de los cambios y compila
+    - También podemos crear el modo desde package.json creando un script
+        "build:watch": "webpack --watch --config webpack.config.js"
+
+## Deploy a Netlify
+- Vamos a crear un archivo que nos va a ayudar a tener esta configuración para desplegar
+    + netlify.toml en la carpeta src
